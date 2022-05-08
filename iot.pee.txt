@@ -1,0 +1,24 @@
+const int ldrpin = A0;
+const int led = D1;
+int threshold =100;
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(ldrpin,INPUT);
+  pinMode(led,OUTPUT);
+}
+void loop()
+{
+  int rawData = analogRead(ldrpin);
+  Serial.println(rawData);
+  if (rawData<100)
+  {
+    digitalWrite(led,HIGH);
+   
+  }
+  else
+  {
+    digitalWrite(led,LOW);
+  }
+  delay(100);
+}
